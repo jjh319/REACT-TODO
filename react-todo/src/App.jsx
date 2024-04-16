@@ -25,6 +25,7 @@ function App() {
   const handleClick = () => {
     console.log("clicked");
     localStorage.setItem(inputText, inputText);
+    setInputText("");
   }; // handleClick
 
   return (
