@@ -26,6 +26,12 @@ function App() {
   const handleClick = () => {
     console.log("clicked");
     localStorage.setItem(inputText, inputText);
+    // setInputText("");
+    // todos.push(inputText);
+    // 배열 상태 추가 방식
+    setTodos((currentTodos) => {
+      return [...currentTodos, inputText];
+    });
     setInputText("");
   }; // handleClick
 
