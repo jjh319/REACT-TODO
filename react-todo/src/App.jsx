@@ -28,6 +28,11 @@ function App() {
     setInputText("");
   }; // handleClick
 
+  const handleRemove = (todo, index) => {
+    console.log(todo, index);
+    todos.splice(index, 1); // splice = 배열의 몇번째 인덱스값에서 몇개를 지우겠다.
+  };
+
   return (
     <div>
       <h1>TODO 앱</h1>
@@ -38,7 +43,14 @@ function App() {
       <div>
         <ul>
           {todos.map((todo, index) => {
-            return <li key={index}>{todo}</li>;
+            return (
+              <li key={index}>
+                <span>{todo}</span>
+                <button onClick={() => handleRemove(todo, index)}>
+                  remove
+                </button>
+              </li>
+            );
           })}
         </ul>
       </div>
