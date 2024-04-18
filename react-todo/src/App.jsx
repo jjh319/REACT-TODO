@@ -14,7 +14,8 @@ function App() {
   // const [count, setCount] = useState(0);
   const [inputText, setInputText] = useState("");
   // state = 컴포넌트가 기억해야 할 특정 값
-  const todos = fetchTodos();
+  // const todos = fetchTodos();
+  const [todos, setTodos] = useState(fetchTodos());
 
   const handleInput = (event) => {
     console.log(event);
@@ -29,8 +30,16 @@ function App() {
   }; // handleClick
 
   const handleRemove = (todo, index) => {
-    console.log(todo, index);
-    todos.splice(index, 1); // splice = 배열의 몇번째 인덱스값에서 몇개를 지우겠다.
+    // console.log(todo, index);
+    // todos.splice(index, 1); // splice = 배열의 몇번째 인덱스값에서 몇개를 지우겠다.
+    const result = todos.filter((todoItem) => {
+      if (todoItem !== todo) {
+        return true;
+      } // if
+    }); // filter
+
+    setTodos(result);
+    localStorage.removeItem(todo);
   };
 
   return (
