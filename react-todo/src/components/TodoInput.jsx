@@ -1,23 +1,16 @@
 import { useState } from "react";
 
-function TodoInput() {
+function TodoInput({ onTodoAdd }) {
   const [inputText, setInputText] = useState("");
 
   const handleInput = (event) => {
     console.log(event);
     const value = event.target.value;
     setInputText(value);
-  }; // handleInput
+  }; // TodoInput
 
   const handleClick = () => {
-    console.log("clicked");
-    localStorage.setItem(inputText, inputText);
-    // setInputText("");
-    // todos.push(inputText);
-    // 배열 상태 추가 방식
-    setTodos((currentTodos) => {
-      return [...currentTodos, inputText];
-    });
+    onTodoAdd(inputText);
     setInputText("");
   }; // handleClick
 

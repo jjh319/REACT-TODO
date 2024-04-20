@@ -16,6 +16,17 @@ function fetchTodos() {
 function App() {
   const [todos, setTodos] = useState(fetchTodos());
 
+  const addTodo = (todo) => {
+    console.log("clicked");
+    localStorage.setItem(todo, todo);
+    // setInputText("");
+    // todos.push(inputText);
+    // 배열 상태 추가 방식
+    setTodos((currentTodos) => {
+      return [...currentTodos, todo];
+    });
+  }; // handleClick
+
   const handleRemove = (todo, index) => {
     // console.log(todo, index);
     // todos.splice(index, 1); // splice = 배열의 몇번째 인덱스값에서 몇개를 지우겠다.
@@ -32,7 +43,7 @@ function App() {
   return (
     <div>
       <TodoHeader />
-      <TodoInput />
+      <TodoInput onTodoAdd={addTodo} />
       <TodoList todos={todos} onTodoRemove={handleRemove} />
     </div>
   ); // return
