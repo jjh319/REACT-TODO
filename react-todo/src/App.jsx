@@ -17,7 +17,6 @@ function App() {
   const [todos, setTodos] = useState(fetchTodos());
 
   const addTodo = (todo) => {
-    console.log("clicked");
     localStorage.setItem(todo, todo);
     // setInputText("");
     // todos.push(inputText);
@@ -27,7 +26,7 @@ function App() {
     });
   }; // handleClick
 
-  const handleRemove = (todo, index) => {
+  const removeTodo = (todo, index) => {
     // console.log(todo, index);
     // todos.splice(index, 1); // splice = 배열의 몇번째 인덱스값에서 몇개를 지우겠다.
     const result = todos.filter((todoItem) => {
@@ -44,7 +43,7 @@ function App() {
     <div>
       <TodoHeader />
       <TodoInput onTodoAdd={addTodo} />
-      <TodoList todos={todos} onTodoRemove={handleRemove} />
+      <TodoList todos={todos} onTodoRemove={removeTodo} />
     </div>
   ); // return
 } // App

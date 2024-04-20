@@ -4,7 +4,6 @@ function TodoInput({ onTodoAdd }) {
   const [inputText, setInputText] = useState("");
 
   const handleInput = (event) => {
-    console.log(event);
     const value = event.target.value;
     setInputText(value);
   }; // TodoInput
