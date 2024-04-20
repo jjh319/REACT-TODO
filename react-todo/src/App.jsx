@@ -1,5 +1,6 @@
 import { useState } from "react";
 import TodoHeader from "./components/TodoHeader";
+import TodoInput from "./components/TodoInput";
 
 function fetchTodos() {
   const result = [];
@@ -12,29 +13,7 @@ function fetchTodos() {
 } // fetchTodos
 
 function App() {
-  // const [count, setCount] = useState(0);
-  const [inputText, setInputText] = useState("");
-  // state = 컴포넌트가 기억해야 할 특정 값
-  // const todos = fetchTodos();
   const [todos, setTodos] = useState(fetchTodos());
-
-  const handleInput = (event) => {
-    console.log(event);
-    const value = event.target.value;
-    setInputText(value);
-  }; // handleInput
-
-  const handleClick = () => {
-    console.log("clicked");
-    localStorage.setItem(inputText, inputText);
-    // setInputText("");
-    // todos.push(inputText);
-    // 배열 상태 추가 방식
-    setTodos((currentTodos) => {
-      return [...currentTodos, inputText];
-    });
-    setInputText("");
-  }; // handleClick
 
   const handleRemove = (todo, index) => {
     // console.log(todo, index);
@@ -52,10 +31,7 @@ function App() {
   return (
     <div>
       <TodoHeader />
-      <div>
-        <input type="text" value={inputText} onChange={handleInput} />
-        <button onClick={handleClick}>add</button>
-      </div>
+      <TodoInput />
       <div>
         <ul>
           {todos.map((todo, index) => {
