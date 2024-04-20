@@ -10,9 +10,7 @@ function fetchTodos() {
   return result;
 } // fetchTodos
 
-function TodoList() {
-  const [todos, setTodos] = useState(fetchTodos());
-
+function TodoList({ todos }) {
   const handleRemove = (todo, index) => {
     // console.log(todo, index);
     // todos.splice(index, 1); // splice = 배열의 몇번째 인덱스값에서 몇개를 지우겠다.

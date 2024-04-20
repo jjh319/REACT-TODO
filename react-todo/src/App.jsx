@@ -3,18 +3,18 @@ import TodoHeader from "./components/TodoHeader";
 import TodoInput from "./components/TodoInput";
 import TodoList from "./components/TodoList";
 
-// function fetchTodos() {
-//   const result = [];
-//   for (let i = 0; i < localStorage.length; i++) {
-//     const value = localStorage.key(i);
-//     result.push(value);
-//   } // for
+function fetchTodos() {
+  const result = [];
+  for (let i = 0; i < localStorage.length; i++) {
+    const value = localStorage.key(i);
+    result.push(value);
+  } // for
 
-//   return result;
-// } // fetchTodos
+  return result;
+} // fetchTodos
 
 function App() {
-  // const [todos, setTodos] = useState(fetchTodos());
+  const [todos, setTodos] = useState(fetchTodos());
 
   // const handleRemove = (todo, index) => {
   //   // console.log(todo, index);
@@ -33,7 +33,7 @@ function App() {
     <div>
       <TodoHeader />
       <TodoInput />
-      <TodoList />
+      <TodoList todos={todos} />
     </div>
   ); // return
 } // App
